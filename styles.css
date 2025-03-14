@@ -41,8 +41,12 @@ a {
    transition: var(--transition);
 }
 
-ul, ol {
+ul {
    list-style: none;
+}
+
+ol {
+   list-style: decimal;
 }
 
 img {
@@ -149,7 +153,7 @@ p {
 }
 
 .logo-text {
-   margin-left: 1rem;
+   margin-left: -0rem;
 }
 
 .conference-name {
@@ -157,7 +161,7 @@ p {
    color: var(--primary-color);
    font-size: 1.125rem;
    position: relative;
-   display: inline-block;
+   /* display: inline-block; */
    overflow: hidden;
 }
 
@@ -191,7 +195,7 @@ p {
 
 .nav-links {
    display: flex;
-   gap: 0.25rem;
+   gap: 0.75rem;
 }
 
 .nav-link {
@@ -535,7 +539,10 @@ p {
 .about-content {
    max-width: 48rem;
    margin: 0 auto;
+   text-align: justify;
+   
 }
+ 
 
 /* Objectives Section */
 .objectives-intro {
@@ -723,7 +730,7 @@ p {
 
 /* Registration Section */
 .registration-intro {
-   text-align: center;
+   text-align: justify;
    margin-bottom: 2rem;
 }
 
@@ -1072,4 +1079,35 @@ p {
        padding-top: 60px; /* Adjust padding for mobile */
    }
 }
+/* Mobile Nav Fixes */
+.mobile-nav {
+   position: fixed;
+   top: 60px; /* Adjusted for mobile header height */
+   left: 0;
+   width: 100%;
+   background: white;
+   z-index: 9998; /* Below navbar but above content */
+   transform: translateY(-150%);
+   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.mobile-nav.open {
+   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+   .navbar {
+       padding: 0.5rem 0 !important;
+   }
+   
+   .logo {
+       height: 40px;
+   }
+   
+   .mobile-nav {
+       top: 56px; /* Match navbar height */
+   }
+}
+.mobile-nav-links{
+   gap: 0.6rem;
+}
